@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philippine Tourist Destinations</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Gill Sans", sans-serif;
+            background-color: #f0f0f0; 
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: auto;
+        }
+        
+        .navbar {
+            position: fixed;
+            width: 100%;
+            z-index: 999;
+            background-color: #008DDA;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 4px;
+            text-align: center;
+        }
+        .navbar ul li {
+            display: inline-block;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px;
+        }
+        .navbar ul:hover li a {
+            transform: scale(1.5);
+            opacity: 0.2;
+            filter: blur(5px);
+        }
+        .navbar ul li a:hover {
+            transform: scale(2);
+            opacity: 1;
+            filter: blur(0);
+            text-decoration: none;
+            color: #fff;
+        }
+        .navbar ul li a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ff497c;
+            border-radius: 4px;
+            transition: 0.5s;
+            transform-origin: right;
+            transform: scaleX(0);
+            z-index: -1;
+        }
+        .navbar ul li a:hover:before {
+            transition: transform 0.5s;
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+       
+
+        .intro {
+            grid-column: 2 / span 10;
+            color: #000;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            text-align: justify;
+            font-size: 2rem;
+        }
+
+
+       .image-gallery1,
+        .image-gallery2 {
+            grid-column: 4 / span 10;
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            grid-gap: 20px; 
+            padding: 20px;
+        }
+
+        .image-container1,
+        .image-container2 {
+            position: relative;
+            width: 100%; 
+            height: 0; 
+            padding-bottom: calc(100% / 1); 
+        }
+
+        .image-container1 img,
+        .image-container2 img {
+            position: absolute;
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            border-radius: 10px;
+            transition: transform 1s;
+            cursor: pointer;
+        }
+
+
+        .image-description1,
+        .image-description2 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .image-container1:hover .image-description1,
+        .image-container2:hover .image-description2 {
+            opacity: 1;
+        }
+
+
+        .footer {
+            grid-column: 1 / span 12; 
+            background-color: #008DDA;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+
+        .historic-landmarks {
+            grid-column: 2 / span 10;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 20px;
+            justify-items: center; 
+        }
+        .historic-landmarks h3{
+            font-size: 3vw;
+        }
+
+        .landmark {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .landmark img {
+            max-width: 80%; 
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .landmark p {
+            margin-bottom: 5px;
+            color: #666;
+            text-align: justify;
+            font-size: 1vw;
+        }
+
+
+
+        .region {
+            grid-column: 1 / span 12;
+            text-align: center;
+            font-size: 9vw;
+            font-weight: bold;
+            margin-top: 20px;
+            animation: colorChange 5s infinite alternate;
+        }
+
+        .title {
+            grid-column: 1 / span 12; 
+            text-align: center; 
+            margin-top: 5%; 
+            font-size: 13vw;
+            font-weight: bold; 
+            animation: colorChange 5s infinite alternate;
+        }
+
+        @keyframes colorChange {
+            from {
+                color: #ff497c;
+            }
+            to {
+                color: #6AD4DD;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="festivals.html">Festivals</a></li>
+                <li><a href="landmarks.html">Historic Landmarks</a></li>
+                <li><a href="foods.html">Foods and Drinks</a></li>
+                <li><a href="itineraries.html">Itineraries</a></li>
+                <li><a href="travel.html">Travel Tours</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="title">
+        <span>L</span> <span>A</span> <span>N</span> <span>D</span> <span>M</span> <span>A</span> <span>R</span> <span>K</span>
+    </div>
+
+
+    <div class="image-gallery1">
+        <div class="image-container1">
+            <img src="Images/banaue.jpg">
+            <div class="image-description1">Rice Terraces of the Philippine Cordilleras</div>
+        </div>
+        <div class="image-container1">
+            <img src="Images/baroque.jpg">
+            <div class="image-description1">Baroque Churches of the Philippines</div>
+        </div>
+        <div class="image-container1">
+            <img src="Images/vigan.jpg">
+            <div class="image-description1">Historic Town of Vigan</div>
+        </div>
+        <div class="image-container1">
+            <img src="Images/apo.jpg">
+            <div class="image-description1">Mount Apo</div>
+        </div>
+    </div>
+    
+    <div class="image-gallery2">
+        <div class="image-container2">
+            <img src="Images/hitoshi-namura-MyiYvI-EKis-unsplash.jpg">
+            <div class="image-description2">Chocolate Hills</div>
+        </div>
+        <div class="image-container2">
+            <img src="Images/Loboc Church.jpg">
+            <div class="image-description2">San Pedro Apostol Parish Church</div>
+        </div>
+        <div class="image-container2">
+            <img src="Images/Fort-Pilar-Zamboanga-City.jpg">
+            <div class="image-description2">Fort Pilar</div>
+        </div>
+        <div class="image-container2">
+            <img src="Images/tub.jpg">
+            <div class="image-description2">Tubbataha Reefs Natural Park</div>
+        </div>
+    </div>
+    
+
+    <div class="intro">
+        <p>Explore the rich history and cultural heritage of the Philippines.From the majestic rice terraces of Ifugao to the intricately designed Baroque churches scattered across the archipelago, these landmarks offer a glimpse into the country's fascinating past and enduring traditions. Embark on a journey through time as you uncover the stories behind these remarkable sites and immerse yourself in the beauty of their architecture, landscapes, and cultural significance.</p>
+    </div>
+    
+    <div class="region">LUZON</div>
+    <div class="historic-landmarks">
+        <h3>Rice Terraces of the Philippine Cordilleras</h3>
+        <img src="Images/banaue2.jpg" alt="Image 1" data-description="Description of Image 1" width="450px">
+        <div class="landmark">
+            <p><strong>Location:</strong> Ifugao Province, Luzon Island</p>
+            <p><strong>History:</strong> Constructed over 2,000 years ago by the indigenous Ifugao people</p>
+            <p><strong>Building Materials:</strong> Stone and mud walls</p>
+            <p><strong>Culture:</strong> Integral part of the Ifugao culture, reflecting sustainable land use and conservation practices</p>
+            <p><strong>Beliefs:</strong> Considered sacred by the Ifugao people, reflecting their spiritual connection with nature</p>
+        </div>
+    </div>
+    
+    <div class="historic-landmarks">
+        <h3>Baroque Churches of the Philippines</h3>
+        <img src="Images/Church Paoay, San Agustin, PhilIppInes.jpg" alt="Image 1" data-description="Description of Image 1" width="450px">
+        <div class="landmark">
+            <p><strong>Location:</strong> Various provinces in Luzon</p>
+            <p><strong>History:</strong> Built during the Spanish colonial period in the 16th to 18th centuries</p>
+            <p><strong>Architecture:</strong> Intricately designed with Baroque style influenced by Spanish and Filipino elements</p>
+            <p><strong>Cultural Significance:</strong> Symbolize the spread of Christianity and the blending of Spanish and Filipino cultures</p>
+            <p><strong>Examples:</strong> Paoay Church in Ilocos Norte, San Agustin Church in Manila, Santa Maria Church in Ilocos Sur</p>
+        </div>
+    </div>
+    
+    <div class="historic-landmarks">
+        <h3>Historic Town of Vigan</h3>
+        <img src="Images/vigan.jpg" alt="Image 1" data-description="Description of Image 1" width="450px">
+        <div class="landmark">
+            <p><strong>Location:</strong> Vigan City, Ilocos Sur</p>
+            <p><strong>History:</strong> Established in the 16th century as a trading post between Asia and the Americas</p>
+            <p><strong>Architecture:</strong> Well-preserved Spanish colonial architecture, cobblestone streets, and ancestral houses</p>
+            <p><strong>Cultural Significance:</strong> Reflects the fusion of Asian, European, and Filipino cultures</p>
+            <p><strong>Attractions:</strong> Calle Crisologo, Vigan Cathedral, Syquia Mansion</p>
+        </div>
+    </div>
+    
+    <div class="region">VISAYAS</div>
+    <div class="historic-landmarks">
+        <h3>Chocolate Hills</h3>
+        <img src="Images/Les Chocolate Hills de l'Ile de Bohol aux Philippines.jpg" alt="Image 1" data-description="Description of Image 1" width="450px">
+        <div class="landmark">
+            <p><strong>Location:</strong> Bohol Province, Visayas</p>
+            <p><strong>Formation:</strong> Estimated to be at least 1,200 hills formed from coral limestone</p>
+            <p><strong>Appearance:</strong> Turn chocolate-brown during the dry season, resembling Hershey's Kisses</p>
+            <p><strong>Legend:</strong> According to local folklore, the hills were formed from the tears of a giant named Arogo</p>
+        </div>
+    </div>
+    
+    <div class="historic-landmarks">
+        <h3>San Pedro Apostol Parish Church</h3>
+        <img src="Images/Loboc Church.jpg" alt="Image 1" data-description="Description of Image 1" width="450px">
+        <div class="landmark">
+            <p><strong>Location:</strong> Loboc, Bohol Province, Visayas</p>
+            <p><strong>History:</strong> Built in 1602, making it one of the oldest churches in Bohol</p>
+            <p><strong>Architecture:</strong> Baroque style with ornate facade and bell tower</p>
+            <p><strong>Cultural Significance:</strong> Houses the second oldest pipe organ in the Philippines, dating back to 1824</p>
+        </div>
+    </div>
+    
+    <div class="historic-landmarks">
+        <h3>Tubbataha Reefs Natural Park</h3>
+        <img src="Images/tubbataha1-20130120.jpg" alt="Image 1" data-description="Description of Image 1" width="450px">
+        <div class="landmark">
+            <p><strong>Location:</strong> Sulu Sea, Palawan Province (part of the Visayas region)</p>
+            <p><strong>Features:</strong> Marine protected area with two coral atolls and extensive reef systems</p>
+            <p><strong>Biodiversity:</strong> Home to diverse marine life, including over 600 species of fish, sharks, dolphins, and turtles</p>
+            <p><strong>Conservation:</strong> Designated as a UNESCO World Heritage Site for its outstanding universal value and biodiversity conservation efforts</p>
+        </div>
+    </div>
+    
+    <div class="region">MINDANAO</div>
+    <div class="historic-landmarks">
+        <h3>Fort Pilar</h3>
+        <img src="Images/PLYGRND-08362-scaled.jpg"  width="450px">
+        <div class="landmark">
+            <p><strong>Location:</strong> Zamboanga City, Mindanao</p>
+            <p><strong>History:</strong> Fort Pilar, also known as Real Fuerza de Nuestra Señora del Pilar de Zaragoza, was built by Spanish colonizers in the 17th century to protect the region from Moro pirate attacks.</p>
+            <p><strong>Architecture:</strong> The fort features a triangular bastion design typical of Spanish colonial military architecture, with thick stone walls and cannons overlooking the sea.</p>
+            <p><strong>Significance:</strong> Fort Pilar serves as a symbol of Zamboanga City's rich history and cultural heritage, reflecting the enduring influence of Spanish colonization in Mindanao.</p>
+        </div>
+    </div>
+
+    <div class="historic-landmarks">
+        <h3>Tawi-Tawi National Shrine of Sheikh Karim ul-Makhdum</h3>
+        <img src="Images/tawi.JPG" width="450px">
+        <div class="landmark">
+            <p><strong>Location:</strong> Bongao, Tawi-Tawi, Mindanao</p>
+            <p><strong>History:</strong> The Tawi-Tawi National Shrine is believed to be the final resting place of Sheikh Karim ul-Makhdum, a Muslim missionary who introduced Islam to the Philippines in the 14th century.</p>
+            <p><strong>Significance:</strong> Regarded as one of the oldest Islamic structures in the Philippines, the shrine serves as a symbol of the rich Islamic heritage and cultural influence in the region.</p>
+            <p><strong>Architecture:</strong> The shrine features traditional Islamic architecture with intricate designs and motifs, reflecting the enduring legacy of Islam in Mindanao.</p>
+        </div>
+    </div>
+    
+    
+    
+    <div class="historic-landmarks">
+        <h3>Mount Hamiguitan Range Wildlife Sanctuary</h3>
+        <img src="Images/mthami.jpg" width="450px">
+        <div class="landmark">
+            <p><strong>Location:</strong> Davao Oriental, Mindanao</p>
+            <p><strong>Features:</strong> Diverse ecosystem with unique flora and fauna, including the iconic pygmy forest and endangered Philippine eagle</p>
+            <p><strong>UNESCO Status:</strong> Designated as a UNESCO World Heritage Site in 2014 for its outstanding universal value and rich biodiversity</p>
+            <p><strong>Conservation:</strong> Protected area managed by the Philippine government and various conservation organizations</p>
+        </div>
+        
+    </div>
+    
+
+
+
+   
+
+    </div>
+
+    <br><br>
+    <footer class="footer">
+        <p>&copy;2024 Philippine Tourist Destinations. All rights reserved.Angela Samboa</p>
+    </footer>
+</body>
+</html>

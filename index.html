@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philippine Tourist Destinations</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Gill Sans", sans-serif;
+            background-color: #f0f0f0; 
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: auto;
+        }
+        
+        .navbar {
+            position: fixed;
+            width: 100%;
+            z-index: 999;
+            background-color: #008DDA;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 4px;
+            text-align: center;
+        }
+        .navbar ul li {
+            display: inline-block;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px;
+        }
+        .navbar ul:hover li a {
+            transform: scale(1.5);
+            opacity: 0.2;
+            filter: blur(5px);
+        }
+        .navbar ul li a:hover {
+            transform: scale(2);
+            opacity: 1;
+            filter: blur(0);
+            text-decoration: none;
+            color: #fff;
+        }
+        .navbar ul li a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ff497c;
+            border-radius: 4px;
+            transition: 0.5s;
+            transform-origin: right;
+            transform: scaleX(0);
+            z-index: -1;
+        }
+        .navbar ul li a:hover:before {
+            transition: transform 0.5s;
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+        .typewriter-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            grid-column: 1 / span 12;
+        }
+
+        .typewriter {
+            text-align: center;
+        }
+
+        .typewriter p {
+            color:#fff;
+            font-size: 2vw;
+        }
+
+        .typewriter h1 {
+            display: inline-block;
+            border-right: .15em solid orange;
+            white-space: nowrap;
+            font-size: 8vw;
+            overflow: hidden;
+            color: yellow;
+            margin-top: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: typing 4s steps(40, end), blink-caret .5s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: orange; }
+        }
+
+        .intro {
+            grid-column: 2 / span 10;
+            color: #000;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            text-align: justify;
+            font-size: 2rem;
+        }
+        .mySlides {
+            width: calc(100% / 12 * 12);
+            height: auto;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 2s linear; 
+            z-index: -1;
+            filter: blur(5px);
+        }
+
+        .mySlides:nth-child(1) {
+            animation: fade 8s infinite;
+        }
+
+        .mySlides:nth-child(2) {
+            animation: fade 8s infinite 20s;
+        }
+
+        .mySlides:nth-child(3) {
+            animation: fade 8s infinite 40s;
+        }
+
+        .mySlides:nth-child(4) {
+            animation: fade 8s infinite 60s;
+        }
+
+        @keyframes fade {
+            0% { opacity: 1; }
+            50% { opacity: 1; }
+            100% { opacity: 1; }
+        }
+
+        .image-gallery {
+            grid-column: 2 / span 10;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .image-container {
+            flex: 1 1 calc(50% - 20px);
+            max-width: calc(50% - 20px);
+            position: relative;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            max-height: 305px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 1s;
+            cursor: pointer;
+        }
+
+        .image-container img:hover {
+            transform: rotateY(180deg);
+        }
+
+        .image-description {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(106, 212, 221, 0.5);
+            color: #000;
+            font-size: 14px;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.3s, transform 1s;
+            pointer-events: none;
+            backdrop-filter: blur(10px);
+            transform: rotateY(0deg);
+            transform-style: preserve-3d;
+        }
+
+        .image-container:hover .image-description {
+            opacity: 1;
+            z-index: 1;
+            transform: rotateY(180deg);
+        }
+
+        .image-description p {
+            padding: 8px;
+            transform: rotateY(180deg);
+        }
+
+        .image-description h1 {
+            padding: 8px;
+            transform: rotateY(180deg);
+            color:#fff;
+            text-align: center;
+        }
+
+        .image-gallery1 {
+            grid-column: 2 / span 10;
+            display: flex;
+            justify-content: center; 
+            overflow-x: auto;
+            gap: 20px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .image-container1 {
+            position: relative;
+            width: auto;
+        }
+        .image-container1 h1{
+            text-align: center;
+        }
+
+        .image-container1 img {
+            width: auto;
+            height: 207px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 1s;
+            cursor: pointer;
+        }
+
+        .image-container1 img:hover {
+            transform: skew(10deg);
+        }
+
+        .image-description1 {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%; 
+            color: #fff; 
+            padding: 0px; 
+            text-align: justify;
+            opacity: 0; 
+            transition: opacity 0.3s;
+        }
+
+        .image-container1:hover .image-description1 {
+            opacity: 1; 
+            backdrop-filter: blur(20px); 
+            
+        }
+
+
+        .blog-container {
+            grid-column: 2 / span 10;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #000;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            grid-gap: 20px;
+        }
+
+        .blog {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .blog img{
+            width:100%;
+        }
+
+        .blog:hover {
+            transform: scale(1.05); 
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+        }
+
+        .blog p {
+            text-align: justify;
+        }
+
+        .video-section {
+            grid-column: 2 / span 10;
+            grid-row: 6 / span 1;
+            color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #000;
+            width: 100%;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            box-sizing: border-box;
+        }
+
+        .video-section p {
+            text-align: justify;
+            font-size:2rem;
+        }
+
+        .video-section h2 {
+            font-size:3rem;
+            animation: karaoke 4s infinite;
+        }
+        .socmed {
+            position: absolute;
+            top: 170px; 
+            left: 4%;
+            transform: translateX(-50%);
+            text-align: right;
+        }
+
+        .socmed a {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .socmed a img {
+            width: 40px;
+            height: auto;
+            transition: transform 0.3s;
+        }
+
+        .socmed a img:hover {
+            transform: scale(1.1); 
+        }
+
+        .footer {
+            grid-column: 1 / span 12; 
+            background-color: #008DDA;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .karaoke-text {
+            grid-column: 1 / span 12;
+            font-size: 15vw; 
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            font-weight: bold;
+            animation: karaoke 5s linear infinite;
+            transition: color 0.5s;
+        }
+
+        .karaoke-text:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes karaoke {
+            0% {
+                color: red;
+            }
+            25% {
+                color: blue;
+            }
+            50% {
+                color: green;
+            }
+            75% {
+                color: orange;
+            }
+            100% {
+                color: red;
+            }
+        }
+        @media (max-width: 768px) {
+            .karaoke-text {
+                font-size: 10vw;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="fade"> 
+            <img class="mySlides" src="Images/cris-tagupa-9ZXHUr5aCwM-unsplash.jpg" style="width:100%">
+            <img class="mySlides" src="Images/hitoshi-namura-MyiYvI-EKis-unsplash.jpg" style="width:100%">
+            <img class="mySlides" src="Images/Metro Manila - Philippines.jpg" style="width:100%">
+            <img class="mySlides" src="Images/Breath Taking Boracay.jpg" style="width:100%">
+        </div>
+        <div class="socmed"> 
+           <a href="https://www.tiktok.com/"><img src="Images/tiktok-xxl.png"></a>
+           <a href="https://www.facebook.com/"><img src="Images/facebook-7-xxl.png"></a>
+           <a href="https://www.youtube.com/"><img src="Images/youtube-6-xxl.png"></a>
+           <a href="https://twitter.com/"><img src="Images/twitter-xxl.png"></a>
+           <a href="https://www.instagram.com/"><img src="Images/instagram-6-xxl.png"></a>
+        </div>
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="festivals.html">Festivals</a></li>
+                <li><a href="landmarks.html">Historic Landmarks</a></li>
+                <li><a href="foods.html">Foods and Drinks</a></li>
+                <li><a href="itineraries.html">Itineraries</a></li>
+                <li><a href="travel.html">Travel Tours</a></li>
+            </ul>
+        </div>
+
+        <div class="typewriter-container">
+            <div class="typewriter">
+                <h1>PIPILIIN PILIPINAS</h1>
+                <p>Welcome to the Philippines: A Land of Endless Beauty </p>
+            </div>
+        </div>
+
+
+
+        <div class="image-gallery">
+            <div class="image-container">
+                <img src="Images/boracay.jpg">
+                <div class="image-description"><h1>BORACAY</h1><p>With its powdery white sand beaches and vibrant nightlife, Boracay is a tropical paradise that draws tourists from all over the world. Picture yourself lounging on the beach, soaking up the sun as you watch the breathtaking sunset. The island offers a plethora of water sports and activities, from snorkeling and scuba diving to kiteboarding and parasailing. Don't miss exploring the famous Puka Shell Beach and indulging in fresh seafood at the lively D'Mall. Boracay truly epitomizes the beauty of the Philippines' island life.</p></div>
+            </div>
+            
+            <div class="image-container">
+                <img src="Images/banaue2.jpg">
+                <div class="image-description"><h1>IFUGAO RICE TERRACES</h1><p>Nestled amidst the picturesque Cordillera Mountains, the Ifugao Rice Terraces are a UNESCO World Heritage Site and a testament to the ingenuity of the indigenous Ifugao people. Carved into the mountainside over 2,000 years ago, these terraces showcase intricate agricultural techniques passed down through generations. Trek through the verdant landscapes, interact with local communities, and learn about the cultural significance of the rice terraces. The Ifugao Rice Terraces offer a glimpse into the harmonious relationship between man and nature.</p></div>
+            </div>
+            
+            <div class="image-container">
+                <img src="Images/featured_palawan1-1170x676.jpg">
+                <div class="image-description"><h1>TURQUIOUSE WATER</h1><p>The Philippines boasts an abundance of pristine beaches and crystal-clear waters, making it a haven for beach lovers and water enthusiasts alike. From the secluded coves of Palawan to the vibrant reefs of Tubbataha, the country's marine biodiversity is unparalleled. Dive into the azure depths to encounter colorful coral reefs, tropical fish, and even majestic whale sharks. Whether you're swimming, snorkeling, or simply sunbathing on the shore, the turquoise waters of the Philippines promise an unforgettable aquatic adventure.</p></div>
+            </div>
+            
+        </div>
+
+        
+        <div class="intro">
+            <p class="karaoke-text">MABUHAY</p>
+                <p>Close your eyes and envision the allure of the Philippines – a land where vibrant cultures dance in harmony with nature's grandeur. Picture yourself amidst the powdery sands of Boracay, where each grain tells tales of tropical bliss. Yet, beyond these shores lie endless adventures beckoning your spirit of wanderlust. From the bustling streets of Manila pulsating with life to the serene whispers of Ifugao's rice terraces, the Philippines promises a tapestry of unforgettable moments. So, gather your dreams and embark on a journey where every step is a brushstroke in the masterpiece of your travels.</p>
+        </div>
+
+
+        <div class="image-gallery1">
+            <div class="image-container1">
+                <img src="Images/Featured-image-Taal-caldera-and-Picnic-grove-in-Tagaytay-1244x700.jpg">
+                <div class="image-description1"><h1>LUSH GREENERY</h1>Beyond its idyllic beaches, the Philippines is also home to lush rainforests, verdant mountains, and cascading waterfalls. Explore the dense foliage of Bohol's Chocolate Hills, hike to the summit of Mount Pulag for panoramic views, or chase waterfalls in the jungles of Iligan. Immerse yourself in the natural beauty of the Philippines as you encounter diverse flora and fauna, from exotic orchids to endemic wildlife. With its abundance of greenery, the Philippines is a paradise for nature lovers and outdoor enthusiasts alike.</div>
+            </div>
+            
+            <div class="image-container1">
+                <img src="Images/mnl.jpg">
+                <div class="image-description1"><h1>VIBRANT CITY LIFE</h1>Experience the bustling streets and vibrant energy of Philippine cities. From the historical landmarks of Manila to the modern skyscrapers of Makati, the urban landscape is a blend of tradition and progress. Explore colorful markets, indulge in delectable street food, and immerse yourself in the rich culture and heritage of the Philippines' urban centers. Whether you're wandering through colonial-era streets or dancing the night away in trendy clubs, Philippine cities offer a dynamic and unforgettable experience.</div>
+            </div>
+            
+            <div class="image-container1">
+                <img src="Images/Palawan-Holiday-Resort.jpg">
+                <div class="image-description1"><h1>TRANQUIL ISLAND ESCAPES</h1>Escape to the serene beauty of Philippine islands and discover paradise on earth. From the pristine beaches of Palawan to the hidden gems of Siargao, each island offers a unique slice of tropical bliss. Dive into turquoise waters teeming with marine life, lounge on sun-kissed shores, or explore lush jungles and hidden lagoons. Whether you seek adventure or relaxation, Philippine islands promise unforgettable experiences and breathtaking landscapes.</div>
+            </div>
+        </div>
+        
+        
+        <div class="intro">
+            <p>Step into a world where paradise meets adventure – welcome to the Philippines. Imagine yourself surrounded by the natural wonders of the Philippines, from the majestic terraced landscapes of Ifugao to the vibrant energy of Manila's urban streets. Every corner of this archipelago beckons with its own story, waiting to be explored. So, dust off your explorer's hat, for in the heart of the Philippines, an extraordinary journey awaits.</p>
+        </div>
+        
+        
+        <div class="blog-container">
+            <div class="blog">
+                <h2>Exploring Paradise: A Journey Through the Philippines</h2>
+                <img src="Images/El-Nido-Palawan.jpg">
+                <p>Embark on a visual journey through the Philippines' top destinations. From the turquoise waters that stretch endlessly to lush greenery that envelops you in its embrace, these images offer a glimpse into the beauty that awaits. And don't forget to delve into our "blog stories" for insider tips and hidden gems, ensuring your Philippine adventure is nothing short of extraordinary.</p>
+            </div>
+            <div class="blog">
+                <h2>Cityscape Chronicles: Unveiling the Urban Marvels of the Philippines</h2>
+                <img src="Images/Metro Manila - Philippines.jpg">
+                <p>Peek into the heart of Philippine cities with captivating images capturing the essence of urban life. Traverse through the bustling streets, marvel at architectural wonders, and dive into the cultural melting pot that defines Philippine cities. Join us on this visual adventure and uncover the vibrant soul of the Philippines.</p>
+            </div>
+            <div class="blog">
+                <h2>Hidden Havens: Discovering Tranquility in the Philippines</h2>
+                <img src="Images/Danjugan Island - Philippines Nature Paradise - The Crowded Planet.jpg">
+                <p>Unravel the secrets of the Philippines' tranquil hideaways with captivating images that transport you to secluded paradises. From pristine beaches kissed by azure waters to lush landscapes enveloped in tranquility, these hidden havens offer an escape from the ordinary. Let our visual stories guide you to serenity amidst the beauty of the Philippines.</p>
+            </div>
+        </div>
+        
+        
+        <br><br>
+        <div class="video-section">
+            <h2>Videos and Fun Events</h2>
+            <p>Now for the fun stuff – we've got some epic videos and clips lined up for you. From drone shots of pristine beaches to time-lapse videos of bustling street markets, these visuals will transport you straight to the heart of the Philippines. Oh, and don't miss out on our list of fun events happening across the country – from music festivals to food fairs, there's always something exciting happening in the Philippines!</p>
+                <iframe width="900" height="506" src="https://www.youtube.com/embed/K2Cjf8gHH3Y" title="Welcome Back to the Philippines!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="900" height="506" src="https://www.youtube.com/embed/YwYg6RVzlGg" title="The Philippines Proudly Welcomes You" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="900" height="506" src="https://www.youtube.com/embed/-GOe8P3h7lA" title="There is a place | Philippines Short Film" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy;2024 Philippine Tourist Destinations. All rights reserved. Angela Samboa</p>
+    </footer>
+</body>
+</html>

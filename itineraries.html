@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philippine Tourist Destinations</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Gill Sans", sans-serif;
+            background-color: #f0f0f0; 
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: auto;
+        }
+        
+        .navbar {
+            position: fixed;
+            width: 100%;
+            z-index: 999;
+            background-color: #008DDA;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 4px;
+            text-align: center;
+        }
+        .navbar ul li {
+            display: inline-block;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px;
+        }
+        .navbar ul:hover li a {
+            transform: scale(1.5);
+            opacity: 0.2;
+            filter: blur(5px);
+        }
+        .navbar ul li a:hover {
+            transform: scale(2);
+            opacity: 1;
+            filter: blur(0);
+            text-decoration: none;
+            color: #fff;
+        }
+        .navbar ul li a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ff497c;
+            border-radius: 4px;
+            transition: 0.5s;
+            transform-origin: right;
+            transform: scaleX(0);
+            z-index: -1;
+        }
+        .navbar ul li a:hover:before {
+            transition: transform 0.5s;
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+       
+
+        .intro {
+            grid-column: 2 / span 10;
+            color: #000;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            text-align: justify;
+            font-size: 2rem;
+        }
+
+        .title{
+            grid-column: 6 /span 12;
+            text-align: center;
+            margin-top: 100px;
+            font-size: 13vw;
+            animation: colorChange 5s infinite alternate;
+        }
+        @keyframes colorChange {
+            from {
+                color: #ff497c; 
+            }
+            to {
+                color: #6AD4DD; 
+            }
+        }
+
+        .itineraries-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: justify;
+        }
+
+        .itinerary {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 2vw;
+        }
+
+        h3 {
+            margin-bottom: 10px;
+            
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+            font-size: 1.5vw;
+        }
+
+
+        .itinerary img {
+            max-width: 100%;
+            width:auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .itinerary:hover h2{
+            color:#ff497c;
+        }
+       
+        .itinerary:hover img {
+            transform: scale(1.1);
+            border: 2px solid #000;
+        }
+
+
+
+
+        .footer {
+            grid-column: 1 / span 12; 
+            background-color: #008DDA;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="festivals.html">Festivals</a></li>
+                <li><a href="landmarks.html">Historic Landmarks</a></li>
+                <li><a href="foods.html">Foods and Drinks</a></li>
+                <li><a href="itineraries.html">Itineraries</a></li>
+                <li><a href="travel.html">Travel Tours</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <h1 class="title">ITINERARIES</h1>
+
+    <div class="intro">
+        <p>Get ready to embark on an unforgettable journey through the Philippines, a country brimming with diverse landscapes, rich history, and warm hospitality. From the world-renowned beaches of Boracay to the cultural heritage of Manila, each destination offers a unique tapestry of experiences waiting to be explored. Whether you're seeking adventure in the lush rice terraces of Ifugao or tranquility in the pristine waters of Palawan, the Philippines promises to enchant you at every turn. So pack your bags, immerse yourself in the vibrant tapestry of Filipino culture, and let the adventure begin!</p>
+    </div>
+
+    <div class="itineraries-container">
+        <div class="itinerary">
+            <img src="Images/manila1.jpg" alt="Manila">
+            <h2>Itinerary for Manila</h2>
+            <ul>
+                <li>Day 1: Explore Intramuros and Fort Santiago</li>
+                <li>Day 2: Visit National Museum and Rizal Park</li>
+                <li>Day 3: Shopping and dining at Bonifacio High Street</li>
+            </ul>
+        </div>
+        
+        <div class="itinerary">
+            <img src="Images/bohol2.jpg" alt="Bohol">
+            <h2>Itinerary for Bohol</h2>
+            <ul>
+                <li>Day 1: Visit Chocolate Hills and Tarsier Sanctuary</li>
+                <li>Day 2: Explore Panglao Island and Hinagdanan Cave</li>
+                <li>Day 3: Relax at Alona Beach and dine at Loboc River Cruise</li>
+            </ul>
+        </div>
+        
+        <div class="itinerary">
+            <img src="Images/Breath Taking Boracay.jpg" alt="Boracay">
+            <h2>Itinerary for Boracay</h2>
+            <ul>
+                <li>Day 1: Lounge at White Beach</li>
+                <li>Day 2: Island hopping to Puka Shell Beach and Ariel's Point</li>
+                <li>Day 3: Enjoy sunset at Diniwid Beach and dinner at D'Mall</li>
+            </ul>
+        </div>
+        
+        <div class="itinerary">
+            <img src="Images/cebu.jpg" alt="Cebu">
+            <h2>Itinerary for Cebu</h2>
+            <ul>
+                <li>Day 1: Visit Magellan's Cross and Basilica del Santo Niño</li>
+                <li>Day 2: Explore Kawasan Falls and Oslob's whale shark watching</li>
+                <li>Day 3: Island hopping to Malapascua and Bantayan Islands</li>
+            </ul>
+        </div>
+        
+        <div class="itinerary">
+            <img src="Images/palawan1.jpg" alt="Palawan">
+            <h2>Itinerary for Palawan</h2>
+            <ul>
+                <li>Day 1: Discover Puerto Princesa Underground River</li>
+                <li>Day 2: Island hopping to El Nido's lagoons and beaches</li>
+                <li>Day 3: Snorkeling at Coron's shipwrecks and hot spring baths</li>
+            </ul>
+        </div>
+        
+        <div class="itinerary">
+            <img src="Images/ilocos.jpg" alt="Ilocos">
+            <h2>Itinerary for Ilocos</h2>
+            <ul>
+                <li>Day 1: Explore Vigan's heritage sites and Calle Crisologo</li>
+                <li>Day 2: Sandboarding at Paoay Sand Dunes and visit Cape Bojeador Lighthouse</li>
+                <li>Day 3: Swim at Pagudpud's Blue Lagoon and windmills sightseeing</li>
+            </ul>
+        </div>
+        
+
+    </div>
+    
+    <footer class="footer">
+        <p>&copy;2024 Philippine Tourist Destinations. All rights reserved.Angela Samboa</p>
+    </footer>
+</body>
+</html>

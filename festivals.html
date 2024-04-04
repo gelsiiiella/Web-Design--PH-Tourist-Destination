@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philippine Tourist Destinations</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Gill Sans", sans-serif;
+            background-color: #f0f0f0; 
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: auto;
+        }
+        
+        .navbar {
+            position: fixed;
+            width: 100%;
+            z-index: 999;
+            background-color: #008DDA;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 4px;
+            text-align: center;
+        }
+        .navbar ul li {
+            display: inline-block;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px;
+        }
+        .navbar ul:hover li a {
+            transform: scale(1.5);
+            opacity: 0.2;
+            filter: blur(5px);
+        }
+        .navbar ul li a:hover {
+            transform: scale(2);
+            opacity: 1;
+            filter: blur(0);
+            text-decoration: none;
+            color: #fff;
+        }
+        .navbar ul li a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ff497c;
+            border-radius: 4px;
+            transition: 0.5s;
+            transform-origin: right;
+            transform: scaleX(0);
+            z-index: -1;
+        }
+        .navbar ul li a:hover:before {
+            transition: transform 0.5s;
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+
+        .intro {
+            grid-column: 2 / span 10;
+            color: #000;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            text-align: justify;
+            font-size: 2rem;
+        }
+
+        .intro p{
+            font-size: 2.5rem;
+        }
+
+        .intro h1{
+            text-align: center;
+        }
+
+        .mySlides {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s;
+            z-index: -1;
+            filter: blur(5px);
+        }
+
+        .mySlides:nth-child(1) {
+            animation: fade 10s infinite;
+        }
+
+        .mySlides:nth-child(2) {
+            animation: fade 10s infinite 2.5s;
+        }
+
+        .mySlides:nth-child(3) {
+            animation: fade 10s infinite 5s;
+        }
+
+        .mySlides:nth-child(4) {
+            animation: fade 10s infinite 7.5s;
+        }
+
+        @keyframes fade {
+            0% { opacity: 0; }
+            25% { opacity: 1; }
+            75% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .footer {
+            grid-column: 1 / span 12; 
+            background-color: #008DDA;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .festival-details {
+            grid-column: 3 / span 6;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .festival-details h2{
+            text-align: center;
+            font-size: 3vw;
+            animation: colorChange 5s infinite;
+
+        }
+
+        .festival-details img {
+            display: block; 
+            margin: 0 auto; 
+            max-width: 100%; 
+            transition: transform 0.3s ease; 
+        }
+
+        .festival-details p {
+            grid-column: 2 / span 10;
+            color: #000;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            text-align: justify;
+            font-size: 2rem;
+        }
+
+
+        .festival-details img:hover {
+            transform: scale(1.1); 
+        }
+
+
+        .video-placeholder {
+            grid-column: 3 / span 12;
+            margin-left: 100px;
+            margin-top:40px;
+            display:inline-block;
+  
+
+        }
+        .title {
+            grid-column: 1 / span 12; 
+            text-align: center; 
+            margin-top: 5%; 
+            font-size: 13vw;
+            font-weight: bold; 
+            animation: colorChange 5s infinite alternate;
+        }
+        @keyframes colorChange {
+            from {
+                color: #ff497c; 
+            }
+            to {
+                color: #6AD4DD; 
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="festivals.html">Festivals</a></li>
+                <li><a href="landmarks.html">Historic Landmarks</a></li>
+                <li><a href="foods.html">Foods and Drinks</a></li>
+                <li><a href="itineraries.html">Itineraries</a></li>
+                <li><a href="travel.html">Travel Tours</a></li>
+            </ul>
+        </div>
+        
+
+        <div class="title">
+            <span>F</span> <span>E</span> <span>S</span> <span>T</span> <span>I</span> <span>V</span> <span>A</span> <span>L</span>
+        </div>
+            
+        <div class="intro">
+            <h1>Get Ready to Party Filipino Style!</h1>
+            <p>From colorful street parades to traditional dances and lively music, festivals in the Philippines are a celebration of culture, heritage, and community spirit. Join us as we explore some of the most vibrant festivals that showcase the rich diversity and traditions of the Filipino people.</p>
+        </div>
+            
+        </div>
+    </div>
+
+    <div class="festival-details">
+        <h2>Sinulog Festival</h2>
+        <img src="Images/Sinulog Festival in Cebu_ Ultimate Travel Guide (Philippines).jpg">
+        <p>The Sinulog Festival, nestled within the heart of Cebu City, Philippines, stands as a vibrant testament to the fusion of indigenous roots and Christian traditions. Originating from pre-colonial pagan rituals venerating ancestral deities, the festival seamlessly integrated with Christian beliefs following Spanish colonization. Today, it serves as an annual homage to the Santo Niño, the Child Jesus, celebrated through spirited street dances, colorful processions, and devout expressions of faith.</p>
+        <p>At its essence, the Sinulog Festival is a jubilant celebration of spirituality and community. Locals and visitors alike converge upon Cebu's streets, adorned in elaborate costumes and fueled by the pulsating rhythms of drums and chants. With each graceful sway and intricate step of the Sinulog dance, participants invoke blessings from the Santo Niño and express gratitude for prayers answered, embodying a profound connection between the divine and the earthly.</p>
+        <p> Months of meticulous preparation precede the festival, as communities meticulously craft costumes, rehearse dance routines, and orchestrate logistical arrangements. The crescendo of anticipation builds towards the festival's climax—the grand street parade. Against the backdrop of Cebu's historic landmarks, the Sinulog Festival unfolds in a kaleidoscope of colors and sounds, uniting people from all walks of life in a joyous celebration of faith, heritage, and communal spirit.</p>
+        
+        <div class="video-placeholder">
+            <iframe width="500" height="315" src="https://www.youtube.com/embed/eas0BV09CTM" title="The Grandest Festival In the PHILIPPINES! SINULOG FESTIVAL 2023 Cebu city" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    
+        <div class="video-placeholder">
+            <iframe width="500" height="315" src="https://www.youtube.com/embed/JZH0eJXvljM" title="Sinulog Festival 2024 - Cebu Promotional Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+    <div class="festival-details">
+        <h2>Ati-Atihan Festival</h2>
+        <img src="Images/Ati atihan festival of philippines,.jpg">
+        <p>The Ati-Atihan Festival, deeply rooted in the cultural fabric of Kalibo, Aklan, embodies the rich tapestry of Philippine heritage and spirituality. Originating from ancient animistic rituals of the indigenous Aeta tribes, the festival underwent a transformative evolution with the arrival of Spanish missionaries in the 16th century. Today, it stands as a vibrant fusion of pagan traditions and Catholic influences, symbolizing the enduring resilience and adaptability of Filipino culture.</p>
+        <p>At its core, the Ati-Atihan Festival pulsates with a rhythmic vitality that resonates throughout the streets of Kalibo. Dancers adorned in vibrant tribal attire, their bodies painted in intricate patterns resembling the Aeta warriors, move in unison to the hypnotic beat of drums. The festival's exuberant atmosphere transcends barriers of language and nationality, drawing participants and spectators from across the globe to partake in its jubilant revelry.</p>
+        <p>Months of meticulous preparations precede the Ati-Atihan Festival, as communities meticulously design costumes, rehearse choreographed routines, and organize elaborate processions. As the festival reaches its zenith, the streets of Kalibo come alive with a kaleidoscope of colors, sounds, and aromas. Against the backdrop of ancestral traditions and modernity, the Ati-Atihan Festival serves as a vibrant testament to the enduring spirit of unity, faith, and cultural heritage ingrained in the Filipino psyche.</p>
+        <div class="video-placeholder">
+            <iframe width="500" height="315" src="https://www.youtube.com/embed/s_gqTON5tg4" title="CHAMPION - ATI-ATIHAN FESTIVAL | COLEGIO DE LOS BAÑOS FESTIVAL DANCE COMPETITION 2022 | Gino Mendoza" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    
+        <div class="video-placeholder">
+            <iframe width="500" height="315" src="https://www.youtube.com/embed/eQGqZdoH-Vk" title="Ati-Atihan Festival" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+    <div class="festival-details">
+        <h2>Pahiyas Festival</h2>
+        <img src="Images/A Guide To The Philippines Most Amazing Fiestas.jpg">
+        <p>The Pahiyas Festival, nestled within the quaint town of Lucban, Quezon, is a colorful celebration that epitomizes the vibrant spirit of Filipino agricultural abundance and religious devotion. Originating from ancient indigenous rituals of thanksgiving to the rice deity, the festival has evolved over centuries into a dazzling showcase of creativity, community, and cultural heritage.</p>
+        <p>At its heart, the Pahiyas Festival is a jubilant expression of gratitude for bountiful harvests and divine blessings bestowed upon the land. Each year, the streets of Lucban come alive with a riot of colors as houses are adorned with intricately crafted decorations made from agricultural produce, particularly rice grains and fruits. The festival's lively atmosphere reverberates with the sounds of music, laughter, and the aroma of traditional delicacies being prepared.</p>
+        <p>Preparations for the Pahiyas Festival commence months in advance, as residents meticulously plan and execute their elaborate house decorations. The culmination of these efforts is the grand procession, where locals and visitors alike marvel at the ingenuity and artistry displayed in every corner of the town. Against the backdrop of Lucban's picturesque landscapes and centuries-old heritage, the Pahiyas Festival serves as a vibrant celebration of abundance, community spirit, and the enduring bond between humanity and the land.</p>
+       
+        <div class="video-placeholder">
+            <iframe width="500" height="315" src="https://www.youtube.com/embed/LSwYJnX-uvw" title="Pahiyas Festival 2023 | Philippines’ Biggest Harvest Festival in Lucban, Quezon | May 15, 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    
+        <div class="video-placeholder">
+            <iframe width="500" height="315" src="https://www.youtube.com/embed/fWX2Eo5scsc" title="The Lucban San Isidro Pahiyas Festival" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+    <div class="festival-details">
+        <h2>Dinagyang Festival</h2>
+        <img src="Images/DinagyangFestival.jpg">
+        <p>The Dinagyang Festival, held annually in Iloilo City, Philippines, is a dynamic celebration that pulsates with the rhythm of tradition, culture, and spirituality. Originating from ancient indigenous rituals venerating the Ati tribe's revered patron, the Sto. Niño (Child Jesus), the festival has evolved into a vibrant showcase of faith, heritage, and communal unity.</p>
+        <p>At its core, the Dinagyang Festival is a joyous expression of gratitude and devotion to the Sto. Niño, celebrated through captivating street performances, colorful costumes, and exuberant music and dance. Participants, clad in elaborate Ati-inspired attire, move to the beat of tribal drums and chants, embodying the spirit of the Ati warriors who once inhabited the land.</p>
+        <p>Months of meticulous preparation precede the Dinagyang Festival, as communities immerse themselves in crafting intricate costumes, choreographing dance routines, and organizing cultural events. The festival's highlight is the Ati-Atihan street parade, where revelers from different tribes and contingents converge to showcase their artistic prowess and pay homage to their shared heritage. Against the backdrop of Iloilo's historic streets and landmarks, the Dinagyang Festival transcends mere spectacle, serving as a vibrant celebration of faith, culture, and the enduring spirit of the Filipino people.</p>
+    
+        <div class="video-placeholder">
+            <iframe width="500" height="315" src="https://www.youtube.com/embed/7HaMFiLvoDw" title="GRAND CHAMPION! DINAGYANG FESTIVAL OF ILO-ILO CITY - ALIWAN FIESTA 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    
+        <div class="video-placeholder">
+            <iframe width="500" height="315" src="https://www.youtube.com/embed/Kxl90XDnrJI" title="Hala Bira Iloilo | Official Theme Music of Dinagyang Festival | The Kinaray-a Chronicle" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+    
+    <div class="festival-details">
+        <h2>MassKara Festival</h2>
+        <img src="Images/Masskara Festival _ Invasions of Smiles - Travel Trilogy.jpg">
+        <p>The Masskara Festival, held annually in Bacolod City, Philippines, is a dazzling spectacle that illuminates the spirit of resilience, creativity, and unity. Emerging from a period of economic hardship in the 1980s, the festival serves as a beacon of hope and celebration, showcasing the unwavering spirit of the Bacolodnons amidst adversity.</p>
+        <p>At its heart, the Masskara Festival is a vibrant mosaic of colors, music, and dance, symbolizing the indomitable Filipino spirit. Participants don intricately crafted masks adorned with radiant smiles, embodying the city's resilience and optimism in the face of challenges. The festival's lively street performances, pulsating music, and elaborate costumes create an atmosphere of joy and camaraderie, inviting locals and visitors alike to revel in the festivities.</p>
+        <p>Preparations for the Masskara Festival begin months in advance, as communities come together to design elaborate masks, choreograph dance routines, and organize cultural events. The festival culminates in a grand street parade, where the streets of Bacolod come alive with a riot of colors and exuberant energy. Against the backdrop of smiling faces and intricately designed masks, the Masskara Festival serves as a poignant reminder of the resilience, creativity, and unwavering spirit of the Bacolodnons, making it a truly unforgettable experience for all who participate.</p>
+        <div class="video-placeholder">
+            <iframe width="500" height="315" src="https://www.youtube.com/embed/bHe_3VtXdLE" title="BARANGAY GRANADA | CHAMPION | MASSKARA STREET DANCE AND ARENA COMPETITION 2023 | BACOLOD CITY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    
+        <div class="video-placeholder">
+            <iframe width="500" height="315" src="https://www.youtube.com/embed/6aJIqplSOoo" title="MASSKARA DANCERS SA PBA ALL-STAR GAME 2024 | BACOLOD CITY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+
+    
+
+    <footer class="footer">
+        <p>&copy;2024 Philippine Tourist Destinations. All rights reserved.Angela Samboa</p>
+    </footer>
+</body>
+</html>

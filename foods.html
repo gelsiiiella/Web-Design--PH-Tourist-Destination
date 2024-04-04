@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philippine Tourist Destinations</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Gill Sans", sans-serif;
+            background-color: #f0f0f0; 
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: auto;
+        }
+        
+        .navbar {
+            position: fixed;
+            width: 100%;
+            z-index: 999;
+            background-color: #008DDA;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 4px;
+            text-align: center;
+        }
+        .navbar ul li {
+            display: inline-block;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px;
+        }
+        .navbar ul:hover li a {
+            transform: scale(1.5);
+            opacity: 0.2;
+            filter: blur(5px);
+        }
+        .navbar ul li a:hover {
+            transform: scale(2);
+            opacity: 1;
+            filter: blur(0);
+            text-decoration: none;
+            color: #fff;
+        }
+        .navbar ul li a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ff497c;
+            border-radius: 4px;
+            transition: 0.5s;
+            transform-origin: right;
+            transform: scaleX(0);
+            z-index: -1;
+        }
+        .navbar ul li a:hover:before {
+            transition: transform 0.5s;
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+       
+
+        .intro {
+            grid-column: 2 / span 10;
+            color: #000;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            text-align: justify;
+            font-size: 2rem;
+        }
+
+
+        .footer {
+            grid-column: 1 / span 12; 
+            background-color: #008DDA;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .food-drinks-section {
+            grid-column: 2 / span 10;
+            margin-top: 50px;
+            text-align: center; 
+        }
+
+        .food-drinks-title {
+            margin-bottom: 20px;
+        }
+
+        .food-drinks-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; 
+            gap: 20px; 
+        }
+
+        .food-drink {
+            flex: 0 0 calc(33.33% - 20px); 
+            background-color: #fff;
+            padding: 20px; 
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left; 
+            transition: transform 0.3s ease;
+        }
+
+        .food-drink:hover {
+            transform: scale(1.05);
+        }
+
+        .food-drink h3 {
+            margin-top: 0;
+            font-size: 2vw;
+            text-align: center;
+        }
+        .food-drink:hover h3{
+            color: #ff497c;
+        }
+
+        .food-drink p {
+            margin-bottom: 10px;
+        }
+       
+        .food-drink img {
+            width: 100%;
+            height: 300px; 
+        }
+
+
+        .title {
+            grid-column: 1 / span 12; 
+            text-align: center; 
+            margin-top: 5%; 
+            font-size: 11vw;
+            font-weight: bold; 
+            animation: colorChange 5s infinite alternate;
+        }
+
+        @keyframes colorChange {
+            from {
+                color: #ff497c; 
+            }
+            to {
+                color: #6AD4DD; 
+            }
+        }
+
+        .intro p{
+            font-size: 2vw;
+        }
+        
+        
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="festivals.html">Festivals</a></li>
+                <li><a href="landmarks.html">Historic Landmarks</a></li>
+                <li><a href="foods.html">Foods and Drinks</a></li>
+                <li><a href="itineraries.html">Itineraries</a></li>
+                <li><a href="travel.html">Travel Tours</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="food-drinks-section">
+        <div class="title">
+            <span>F</span> <span>O</span> <span>O</span> <span>D</span> <span>S</span> 
+            </div>
+
+    <div class="food-drinks-section">
+    <div class="intro">
+        <p>Indulge in a culinary journey through the vibrant flavors of the Philippines. Imagine yourself savoring the rich aroma of adobo, the tangy sweetness of halo-halo, and the mouthwatering crispiness of lechon. From the bustling streets of Manila to the quaint eateries of Cebu, Filipino cuisine offers a diverse array of dishes influenced by a blend of indigenous, Spanish, Chinese, and American culinary traditions. Join us as we explore the gastronomic wonders of the Philippines!</p>
+    </div>
+
+           
+        </div>
+        <div class="food-drinks-content">
+            <div class="food-drink">
+                <h3>Adobo</h3>
+                <img src="Images/adobo.jpg">
+                <p><b>Ingredients:</b> Soy sauce, vinegar, garlic, bay leaves, pepper, chicken or pork</p>
+                <p><b>How it is being made: </b>Marinate meat in soy sauce and vinegar, then simmer with garlic, bay leaves, and pepper</p>
+                <p><b>Short Background:</b> Considered the national dish of the Philippines, adobo is a savory and tangy stew.</p>
+                <p><b>Originated provinces: </b>Batangas, Pampanga</p>
+                <p><b>History and Details: </b>Adobo traces its roots to Spanish colonial times, where the cooking method was used to preserve meat.</p>
+            </div>
+            <div class="food-drink">
+                <h3>Sinigang</h3>
+                <img src="Images/sinigang.jpg">
+                <p><b>Ingredients: </b>Tamarind, vegetables (e.g., kangkong, radish, eggplant), fish, pork, or shrimp</p>
+                <p><b>How it is being made: </b>Boil tamarind with water, add meat and vegetables, then season to taste</p>
+                <p><b>Short Background: </b>Sinigang is a sour soup that's often enjoyed as a comfort food in Filipino households.</p>
+                <p><b>Originated provinces:</b> Batangas, Pampanga</p>
+                <p><b>istory and Details: </b>HThe sourness of sinigang comes from tamarind or other souring agents like calamansi or green mango.</p>
+            </div>
+            <div class="food-drink">
+                <h3>Lechon</h3>
+                <img src="Images/lechon-cover.jpg">
+                <p><b>Ingredients: </b>Whole pig, salt, garlic, bay leaves, lemongrass</p>
+                <p><b>How it is being made:</b>Spit-roast a whole pig over an open flame until crispy and golden brown</p>
+                <p><b>Short Background: </b>Lechon is a festive dish in the Philippines, often served during celebrations and special occasions.</p>
+                <p><b>Originated provinces:</b> Cebu, Batangas</p>
+                <p><b>History and Details: </b>The tradition of roasting whole pigs dates back to pre-colonial times and continues to be a highlight of Filipino feasts.</p>
+            </div>
+            <div class="food-drink">
+                <h3>Kare-Kare</h3>
+                <img src="Images/karekare.jpg">
+                <p><b>Ingredients: </b>Oxtail, tripe, peanut sauce, vegetables (e.g., eggplant, string beans, banana blossom)</p>
+                <p><b>How it is being made:</b> Stew oxtail and tripe in peanut sauce, then add vegetables and simmer until tender</p>
+                <p><b>Short Background: </b>Kare-kare is a rich and flavorful Filipino stew known for its thick peanut sauce.</p>
+                <p><b>Originated provinces: </b>Pampanga</p>
+                <p><b>History and Details: </b>The dish's name comes from the Tagalog word "kare," meaning curry, and the Malay word "kare-kare," meaning "to curry."</p>
+            </div>
+            
+
+        </div>
+    </div>
+
+
+    <div class="food-drinks-section">
+        <div class="title">
+            <span>D</span> <span>R</span> <span>I</span> <span>N</span> <span>K</span> <span>S</span> 
+            </div>
+           
+        </div>
+
+        <div class="food-drinks-section">
+            <div class="intro">
+                <p>
+                    Embark on a flavorful journey through Filipino beverages, where Salabat's gingery warmth provides comfort, Buko Juice's fresh coconut water quenches thirst, and Sago't Gulaman's sweet tapioca pearls offer a delightful treat. Meanwhile, Lambanog's potent and distinct flavor adds a spirited touch to celebratory gatherings, capturing the essence of Filipino festivity.</p>
+            </div>
+        
+        <div class="food-drinks-content">
+            <div class="food-drink">
+                <h3>Salabat</h3>
+                <img src="Images/salabat.jpg">
+                <p><b>Ingredients: </b>Ginger, water, brown sugar</p>
+                <p><b>How it is being made:</b> Ginger is boiled in water, then sweetened with brown sugar</p>
+                <p><b>Short Background: </b>Salabat, also known as ginger tea, is a traditional Filipino beverage enjoyed for its warmth and health benefits.</p>
+                <p><b>Origin:</b> Philippines</p>
+                <p><b>History and Details: </b>Salabat is often consumed during cold weather or as a remedy for coughs and sore throats.</p>
+            </div>
+            <div class="food-drink">
+                <h3>Buko Juice</h3>
+                <img src="Images/CoconutWater_Lead.jpg">
+                <p><b>Ingredients:</b> Coconut water</p>
+                <p><b>Short Background:</b> Buko juice, or coconut water, is a refreshing and hydrating drink made from young coconuts.</p>
+                <p><b>Origin:</b> Philippines</p>
+                <p><b>History and Details:</b> Buko juice is often served fresh from the coconut, providing a natural source of electrolytes.</p>
+            </div>
+            <div class="food-drink">
+                <h3>Sago't Gulaman</h3>
+                <img src="Images/sago.JPG">
+                <p><b>Ingredients:</b> Tapioca pearls (sago), agar jelly (gulaman), brown sugar syrup, water</p>
+                <p><b>Short Background: </b>Sago't gulaman is a popular Filipino drink made with tapioca pearls and agar jelly.</p>
+                <p><b>Origin: </b>Philippines</p>
+                <p><b>History and Details:</b> Sago't gulaman is often served during special occasions and festivities, providing a sweet and refreshing treat.</p>
+            </div>
+            <div class="food-drink">
+                <h3>Lambanog</h3>
+                <img src="Images/lambanog_2019-12-26_21-48-56.jpg">
+                <p><b>Ingredients: </b>Coconut sap</p>
+                <p><b>Short Background: </b>Lambanog is a traditional Filipino alcoholic beverage distilled from the sap of the coconut flower.</p>
+                <p><b>Origin: </b>Philippines</p>
+                <p><b>History and Details: </b>Lambanog is often consumed during celebrations and social gatherings, known for its potency and distinct flavor.</p>
+            </div>            
+
+        </div>
+    </div>
+    
+
+    <div class="food-drinks-section">
+        <div class="title">
+            <span>D</span> <span>E</span> <span>L</span> <span>I</span> <span>C</span> <span>A</span> <span>C</span> <span>I</span> <span>E</span> <span>S</span> 
+            </div>
+
+            <div class="food-drinks-section">
+                <div class="intro">
+                    <p>
+                        Indulge in a medley of Filipino delights, from the colorful layers of Halo-Halo to the creamy decadence of Leche Flan and the comforting warmth of Bibingka. Each dish tells a story of tradition and flavor, woven into the fabric of Filipino culture and cherished in every bite. Whether enjoyed on festive occasions or savored as everyday treats, these iconic desserts capture the essence of Filipino sweetness and hospitality. </p>
+                </div>
+           
+        </div>
+        <div class="food-drinks-content">
+            <div class="food-drink">
+                <h3>Halo-Halo</h3>
+                <img src="Images/halo.jpg" alt="Halo-Halo Image" width="90px">
+                <p><b>Ingredients: </b>Shaved ice, evaporated milk, various fruits, sweet beans, ube halaya, leche flan, ice cream</p>
+                <p><b>How it is made: </b>Layer shaved ice with assorted ingredients and top with evaporated milk and ice cream</p>
+                <p><b>Short Background: </b>Halo-Halo is a popular Filipino dessert known for its colorful mix of ingredients and flavors.</p>
+                <p><b>Originated provinces: </b>Pampanga</p>
+                <p><b>History and Details: T</b>he name "halo-halo" means "mix-mix" in Filipino, reflecting its diverse components.</p>
+            </div>
+            
+            <div class="food-drink">
+                <h3>Leche Flan</h3>
+                <img src="Images/lecheflan.jpg" alt="Leche Flan Image" width="90px">
+                <p><b>Ingredients: </b>Egg yolks, condensed milk, sugar</p>
+                <p><b>How it is made: </b>Prepare a caramel syrup and pour it into molds. Mix egg yolks, condensed milk, and sugar, then pour into molds and steam until set.</p>
+                <p><b>Short Background: </b>Leche Flan is a creamy and decadent Filipino custard dessert often served during special occasions.</p>
+                <p><b>Originated provinces: </b>OPhilippines (general)</p>
+                <p><b>History and Details: </b>Leche Flan has Spanish origins and is influenced by the traditional Spanish flan dessert.</p>
+            </div>
+            
+            <div class="food-drink">
+                <h3>Bibingka</h3>
+                <img src="Images/BibingkaGalapong-1.jpg" alt="Bibingka Image" width="90px">
+                <p><b>Ingredients: </b>Glutinous rice flour, coconut milk, sugar, salted eggs, grated cheese</p>
+                <p><b>How it is made: </b>Prepare the batter using glutinous rice flour, coconut milk, and sugar. Pour into banana leaf-lined molds, top with salted eggs and cheese, and bake until golden brown.</p>
+                <p><b>Short Background: </b>Bibingka is a traditional Filipino rice cake often enjoyed during Christmas season.</p>
+                <p><b>Originated provinces: </b>Philippines (general)</p>
+                <p><b>History and Details:</b>Bibingka is believed to have originated from pre-colonial times and is associated with Filipino Christmas traditions.</p>
+            </div>
+            
+            <div class="food-drink">
+                <h3>Taho</h3>
+                <img src="Images/taho.jpg" alt="Taho Image" width="90px">
+                <p><b>Ingredients: </b>Tofu, sago pearls, arnibal (sweet syrup made from caramelized sugar)</p>
+                <p><b>How it is made: </b>Warm soft tofu is mixed with sweet arnibal syrup and topped with chewy tapioca pearls.</p>
+                <p><b>Short Background: </b>Taho is a popular Filipino street food made with fresh silken tofu, sweet syrup, and tapioca pearls.</p>
+                <p><b>Originated provinces: </b>Philippines (general)</p>
+                <p><b>History and Details: </b>Taho is commonly sold by street vendors in the Philippines, often served as a breakfast or midday snack.</p>
+            </div>
+            
+            
+
+        </div>
+    </div>
+
+    <br><br>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy;2024 Philippine Tourist Destinations. All rights reserved.Angela Samboa</p>
+    </footer>
+</body>
+</html>
